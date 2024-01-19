@@ -1,0 +1,35 @@
+
+<div class="p-5">
+  <div class="container shadow p-5">
+
+    <h3>Bancos</h3>
+
+    <div class="input-group mb-3">
+      <input id="code" name="code" [(ngModel)]="code" type="text" class="form-control" placeholder="Digite o código do banco" aria-label="Digite o código do banco" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <a class="btn btn-outline-dark btnSubmit" href="/cadastro" type="submit" (click)="pesquisarBanco(code)" >Pesquisar</a>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nome</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <tr *ngFor="let banco of bancos" (click)="pesquisarBanco(banco.code)" ng-click>
+            <td *ngIf="banco.code != null"><a href="/cadastro">{{ banco.code }}</a></td>
+            <td *ngIf="banco.code != null"><a href="/cadastro">{{ banco.name }}</a></td>
+
+          </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
